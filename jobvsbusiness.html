@@ -103,26 +103,14 @@
 
     <main>
         <section>
-            <h2>Comparing Job and Business</h2>
-            <ul>
-                <li><strong>Stability:</strong> Jobs typically offer more stability with a regular income, while businesses may face fluctuating profits.</li>
-                <li><strong>Earning Potential:</strong> Businesses often have higher earning potential, but success is not guaranteed.</li>
-                <li><strong>Control:</strong> In a job, you have limited control over decisions, whereas a business allows more autonomy.</li>
-                <li><strong>Time Commitment:</strong> Jobs often have fixed working hours, while business owners may work longer hours, especially initially.</li>
-                <li><strong>Risk:</strong> Jobs have lower financial risk, but businesses involve a higher financial risk and potential for loss.</li>
-                <li><strong>Learning Opportunities:</strong> Jobs may provide specific skill development, while businesses offer a broader range of experiences.</li>
-                <li><strong>Benefits:</strong> Jobs commonly come with benefits like health insurance, whereas businesses need to arrange their benefits.</li>
-                <li><strong>Lifestyle:</strong> Jobs provide a more predictable lifestyle, while business owners may experience more variability.</li>
-                <li><strong>Passion:</strong> Business allows pursuing personal passions, while jobs may require working on assigned tasks.</li>
-                <li><strong>Networking:</strong> Jobs provide structured networking, whereas business owners need to actively build their network.</li>
-                <li><strong>Retirement:</strong> Jobs often offer retirement plans; business owners need to plan and manage their retirement savings.</li>
-                <li><strong>Luxury Lifestyle:</strong> Successful businesses can lead to a luxurious lifestyle, while jobs provide a more standard lifestyle.</li>
-            </ul>
+            <h2>Exploring Job and Business</h2>
+            <p>Gain insights into the nuances of career choices and the distinctive features of jobs and businesses. Understand the factors influencing stability, earning potential, control, and more.</p>
         </section>
 
         <section>
-            <h2>Income and Lifestyle Graph</h2>
+            <h2>Income and Lifestyle Trends</h2>
             <canvas id="incomeGraph"></canvas>
+            <p>Explore the trends in income between jobs and businesses. Hover over data points to view specific values and compare the financial aspects of each path over time.</p>
         </section>
     </main>
 
@@ -135,13 +123,19 @@
         document.addEventListener("DOMContentLoaded", function () {
             // Sample data for the graph
             var data = {
-                labels: ["Job", "Business"],
+                labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10"],
                 datasets: [{
-                    label: "Income",
-                    backgroundColor: ["rgba(75,192,192,0.2)", "rgba(255,99,132,0.2)"],
-                    borderColor: ["rgba(75,192,192,1)", "rgba(255,99,132,1)"],
-                    borderWidth: 1,
-                    data: [10000, 20000, 30000, 40000, 50000, 100000, 200000, 400000, 600000, 1000000] // Replace with your actual data
+                    label: "Job Income",
+                    borderColor: "rgba(75,192,192,1)",
+                    borderWidth: 2,
+                    fill: false,
+                    data: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]
+                }, {
+                    label: "Business Income",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 2,
+                    fill: false,
+                    data: [20000, 40000, 60000, 80000, 100000, 120000, 140000, 160000, 180000, 200000]
                 }]
             };
 
@@ -153,10 +147,10 @@
                 }
             };
 
-            // Create a bar graph
+            // Create a line graph
             var ctx = document.getElementById("incomeGraph").getContext("2d");
-            var myBarChart = new Chart(ctx, {
-                type: 'bar',
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
                 data: data,
                 options: options
             });
